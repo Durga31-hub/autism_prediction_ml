@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraScan | Autism Spectrum Screening</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>AuraScan</h1>
+            </div>
+            <p class="subtitle">AI-Powered Autism Spectrum Prediction Model</p>
+        </header>
+
+        <main>
+            <form id="screening-form" class="glass-card">
+                <div class="form-section">
+                    <h2><span class="step-num">01</span> Behavioral Assessment</h2>
+                    <p class="section-desc">Answer the following questions based on behavioral observations (1 for Yes, 0 for No).</p>
+                    
+                    <div class="questions-grid">
+                        <!-- Questions A1-A10 -->
+                        <div class="input-group">
+                            <label for="a1">A1: Social Interaction</label>
+                            <select name="a1" id="a1" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a2">A2: Shared Attention</label>
+                            <select name="a2" id="a2" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a3">A3: Social Communication</label>
+                            <select name="a3" id="a3" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a4">A4: Imagination</label>
+                            <select name="a4" id="a4" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a5">A5: Repetitive Behavior</label>
+                            <select name="a5" id="a5" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a6">A6: Social Interest</label>
+                            <select name="a6" id="a6" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a7">A7: Attention to Detail</label>
+                            <select name="a7" id="a7" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a8">A8: Communication Development</label>
+                            <select name="a8" id="a8" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a9">A9: Play & Social Interaction</label>
+                            <select name="a9" id="a9" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="a10">A10: Understanding Others</label>
+                            <select name="a10" id="a10" required>
+                                <option value="1">Yes (Risk / Trait Present)</option>
+                                <option value="0">No (Typical Behavior)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-section">
+                    <h2><span class="step-num">02</span> Demographics & History</h2>
+                    <div class="demographics-grid">
+                        <div class="input-group">
+                            <label for="sex">Sex</label>
+                            <select name="sex" id="sex" required>
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="jaundice">Jaundice History</label>
+                            <select name="jaundice" id="jaundice" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="family_asd">Family History of ASD</label>
+                            <select name="family_asd" id="family_asd" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn" class="primary-btn">
+                        <span class="btn-text">Run Analysis</span>
+                        <div class="btn-loader hidden"></div>
+                    </button>
+                    <button type="reset" class="secondary-btn">Reset</button>
+                </div>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-card glass-card">
+                    <div class="result-header">
+                        <div id="result-badge" class="badge">Result</div>
+                        <h3>Prediction Analysis</h3>
+                    </div>
+                    <div class="result-body">
+                        <div class="probability-container">
+                            <div class="circular-progress" id="prob-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                    <circle class="progress" cx="50" cy="50" r="45" id="progress-bar"></circle>
+                                </svg>
+                                <div class="percentage" id="prob-text">0%</div>
+                            </div>
+                            <p>ASD Probability</p>
+                        </div>
+                        <div class="result-details">
+                            <h4 id="prediction-text">Analysis Pending</h4>
+                            <p id="analysis-message">Complete the form to see the autism screening result.</p>
+                            
+                            <!-- Exaplainable AI Section -->
+                            <div class="xai-container hidden" id="xai-container">
+                                <h5>Why this prediction? (Key Factors)</h5>
+                                <div style="position: relative; height: 180px; width: 100%;">
+                                    <canvas id="shapChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="disclaimer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                <span>Note: This is an AI prediction and should not replace professional medical diagnosis.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button id="download-report" class="primary-btn report-btn hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Report
+                        </button>
+                        <button id="close-result" class="secondary-btn">New Screening</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 AuraScan. Advanced Clinical Analytics.</p>
+        </footer>
+
+        <!-- Medical Report Template (Hidden) -->
+        <div id="medical-report-template" style="display: none; background: white; color: black; padding: 40px; font-family: Arial, sans-serif; width: 800px; margin: 0 auto; box-sizing: border-box;">
+            <div style="text-align: center; border-bottom: 2px solid #0ea5e9; padding-bottom: 20px; margin-bottom: 20px;">
+                <h1 style="color: #0f172a; margin: 0; font-size: 28px; font-weight: bold;">AuraScan Clinical Systems</h1>
+                <p style="color: #64748b; margin: 5px 0 0 0; font-size: 16px;">Autism Spectrum Predictive Assessment Report</p>
+                <p style="color: #64748b; margin: 5px 0 0 0; font-size: 14px;">Date: <span id="report-date"></span></p>
+            </div>
+            
+            <h3 style="color: #0ea5e9; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; font-size: 18px;">Patient Demographics</h3>
+            <table style="width: 100%; margin-bottom: 25px; font-size: 15px; text-align: left;">
+                <tr>
+                    <td style="padding: 6px 0; font-weight: bold; width: 35%; color: #334155;">Biological Sex:</td>
+                    <td style="padding: 6px 0; color: #0f172a;" id="rep-sex"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px 0; font-weight: bold; color: #334155;">Jaundice at Birth:</td>
+                    <td style="padding: 6px 0; color: #0f172a;" id="rep-jaundice"></td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px 0; font-weight: bold; color: #334155;">Family History of ASD:</td>
+                    <td style="padding: 6px 0; color: #0f172a;" id="rep-family"></td>
+                </tr>
+            </table>
+            
+            <h3 style="color: #0ea5e9; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; font-size: 18px;">Assessment Results</h3>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #e2e8f0;">
+                <p style="margin: 0 0 10px 0; font-size: 18px; color: #0f172a;"><strong>Diagnostic Prediction:</strong> <span id="rep-prediction"></span></p>
+                <p style="margin: 0; font-size: 16px; color: #334155;"><strong>Model Confidence:</strong> <span id="rep-confidence"></span></p>
+            </div>
+
+            <h3 style="color: #0ea5e9; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; font-size: 18px;">Why this prediction? (SHAP Factors)</h3>
+            <ul id="rep-factors" style="font-size: 15px; color: #0f172a; margin-bottom: 25px; padding-left: 25px; line-height: 1.6;">
+            </ul>
+
+            <h3 style="color: #0ea5e9; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; font-size: 18px;">Behavioral Observation Data</h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 30px;">
+                <thead>
+                    <tr style="background: #f1f5f9;">
+                        <th style="padding: 10px; text-align: left; border: 1px solid #cbd5e1; color: #334155;">Criteria Category</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #cbd5e1; color: #334155;">Observation Recorded</th>
+                    </tr>
+                </thead>
+                <tbody id="rep-behavioral">
+                </tbody>
+            </table>
+
+            <div style="margin-top: 50px; font-size: 11px; color: #64748b; text-align: justify; border-top: 1px solid #e2e8f0; padding-top: 15px; line-height: 1.5;">
+                <strong>Disclaimer:</strong> This report is generated by a Machine Learning predictive model (AuraScan AI) based on provided observational data. It does not constitute a formal medical diagnosis. Any positive indicators should be evaluated by a certified clinical professional or behavioral specialist.
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
